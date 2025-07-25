@@ -54,7 +54,7 @@ def extract_items(page):
             title = block.locator("p").inner_text().strip()
 
             try:
-                href = block.locate("a).get_attribute("href")
+                href = block.locate("a").get_attribute("href")
                 full_link = urljoin(BASE_URL, href)
             except:
                 href = ""
