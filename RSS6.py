@@ -34,9 +34,9 @@ def generate_rss(items, output_path):
 
 def extract_items(page):
 
-    page.wait_for_selector("iv.c-list--info.u-mb--110 h4", timeout=10000) 
+    page.wait_for_selector("div.c-list--info.u-mb--110 h4", timeout=10000) 
     
-    selector = "iv.c-list--info.u-mb--110 h4"
+    selector = "div.c-list--info.u-mb--110 h4"
     blocks = page.locator(selector)
     count = blocks.count()
     
