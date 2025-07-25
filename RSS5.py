@@ -50,7 +50,7 @@ def extract_items(page):
             # 🕒 日付を現在時刻に固定
             pub_date = datetime.now(timezone.utc)
 
-            title = block.locator("dd").first.inner_text().strip()
+            title = block.locator("a").first.inner_text().strip()
                 
             try:
                 href = block.locator("a").first.get_attribute("href")
