@@ -5,8 +5,8 @@ import os
 import re
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 
-BASE_URL = "https://www.jhfs.or.jp/index_news_kako.html"
-GAKKAI = "日本心不全学会"
+BASE_URL = "https://jspp1969.jp/news/"
+GAKKAI = "日本小児呼吸器学会"
 
 def generate_rss(items, output_path):
     fg = FeedGenerator()
@@ -34,9 +34,9 @@ def generate_rss(items, output_path):
 
 def extract_items(page):
 
-    page.wait_for_selector("ul.p-news__items li", timeout=10000) 
+    page.wait_for_selector("div.news_list.ajax_post_list.animate div.content", timeout=10000) 
     
-    selector = "ul.p-news__items li"
+    selector = "div.news_list.ajax_post_list.animate div.content"
     blocks = page.locator(selector)
     count = blocks.count()
     print(f"📦 発見した記事数: {count}")
@@ -50,7 +50,7 @@ def extract_items(page):
             # 🕒 日付を現在時刻に固定
             pub_date = datetime.now(timezone.utc)
 
-            title = block.locator("a").first.inner_text().strip()
+            title = block.locator("h3").first.inner_text().strip()
                 
             try:
                 href = block.locator("a").first.get_attribute("href")
