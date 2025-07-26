@@ -34,9 +34,9 @@ def generate_rss(items, output_path):
 
 def extract_items(page):
 
-    page.wait_for_selector("div.max-w-5xl.mx-auto.w-full.pt-16.pb-24.lg:pt-20.lg:pb-40.px-4.md:px-6.lg:px-8 li", timeout=10000) 
+    page.wait_for_selector("body > div.flex.flex-col.relative.flex-1.mt-14 > div.max-w-5xl.mx-auto.w-full.pt-16.pb-24.lg\:pt-20.lg\:pb-40.px-4.md\:px-6.lg\:px-8 > ul li", timeout=10000) 
     
-    selector = "div.max-w-5xl.mx-auto.w-full.pt-16.pb-24.lg:pt-20.lg:pb-40.px-4.md:px-6.lg:px-8 li"
+    selector = "body > div.flex.flex-col.relative.flex-1.mt-14 > div.max-w-5xl.mx-auto.w-full.pt-16.pb-24.lg\:pt-20.lg\:pb-40.px-4.md\:px-6.lg\:px-8 > ul li"
     blocks = page.locator(selector)
     count = blocks.count()
     print(f"📦 発見した記事数: {count}")
