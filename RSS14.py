@@ -34,9 +34,9 @@ def generate_rss(items, output_path):
 
 def extract_items(page):
 
-    page.wait_for_selector("div.newsList font-min a", timeout=10000) 
+    page.wait_for_selector("div.newsList.font-min a", timeout=10000) 
     
-    selector = "div.newsList font-min a"
+    selector = "div.newsList.font-min a"
     blocks = page.locator(selector)
     count = blocks.count()
     print(f"📦 発見した記事数: {count}")
