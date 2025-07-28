@@ -36,7 +36,7 @@ def extract_items(page):
 
     page.wait_for_selector("ul.list-news li", timeout=10000) 
     
-    selector = "ul.c-news-list.c-news-list--straight-line li"
+    selector = "ul.list-news li"
     blocks = page.locator(selector)
     count = blocks.count()
     print(f"📦 発見した記事数: {count}")
