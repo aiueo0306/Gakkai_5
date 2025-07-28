@@ -58,57 +58,57 @@ jobs:
         run: python RSS7.py || echo "RSS7.py failed" >> errors.log
         continue-on-error: true
 
-      - name: Run RSS8
-        run: python RSS8.py || echo "RSS8.py failed" >> errors.log
-        continue-on-error: true
+      # - name: Run RSS8
+      #   run: python RSS8.py || echo "RSS8.py failed" >> errors.log
+      #   continue-on-error: true
 
-      - name: Run RSS9
-        run: python RSS9.py || echo "RSS9.py failed" >> errors.log
-        continue-on-error: true
+      # - name: Run RSS9
+      #   run: python RSS9.py || echo "RSS9.py failed" >> errors.log
+      #   continue-on-error: true
 
-      - name: Run RSS10
-        run: python RSS10.py || echo "RSS10.py failed" >> errors.log
-        continue-on-error: true
+      # - name: Run RSS10
+      #   run: python RSS10.py || echo "RSS10.py failed" >> errors.log
+      #   continue-on-error: true
 
-      - name: Run RSS11
-        run: python RSS11.py || echo "RSS11.py failed" >> errors.log
-        continue-on-error: true
+      # - name: Run RSS11
+      #   run: python RSS11.py || echo "RSS11.py failed" >> errors.log
+      #   continue-on-error: true
 
-      - name: Run RSS12
-        run: python RSS12.py || echo "RSS12.py failed" >> errors.log
-        continue-on-error: true
+      # - name: Run RSS12
+      #   run: python RSS12.py || echo "RSS12.py failed" >> errors.log
+      #   continue-on-error: true
 
-      - name: Run RSS13
-        run: python RSS13.py || echo "RSS13.py failed" >> errors.log
-        continue-on-error: true
+      # - name: Run RSS13
+      #   run: python RSS13.py || echo "RSS13.py failed" >> errors.log
+      #   continue-on-error: true
 
-      - name: Run RSS14
-        run: python RSS14.py || echo "RSS14.py failed" >> errors.log
-        continue-on-error: true
+      # - name: Run RSS14
+      #   run: python RSS14.py || echo "RSS14.py failed" >> errors.log
+      #   continue-on-error: true
 
-      - name: Run RSS15
-        run: python RSS15.py || echo "RSS15.py failed" >> errors.log
-        continue-on-error: true
+      # - name: Run RSS15
+      #   run: python RSS15.py || echo "RSS15.py failed" >> errors.log
+      #   continue-on-error: true
 
-      - name: Run RSS16
-        run: python RSS16.py || echo "RSS16.py failed" >> errors.log
-        continue-on-error: true
+      # - name: Run RSS16
+      #   run: python RSS16.py || echo "RSS16.py failed" >> errors.log
+      #   continue-on-error: true
 
-      - name: Run RSS17
-        run: python RSS17.py || echo "RSS17.py failed" >> errors.log
-        continue-on-error: true
+      # - name: Run RSS17
+      #   run: python RSS17.py || echo "RSS17.py failed" >> errors.log
+      #   continue-on-error: true
 
-      - name: Run RSS18
-        run: python RSS18.py || echo "RSS18.py failed" >> errors.log
-        continue-on-error: true
+      # - name: Run RSS18
+      #   run: python RSS18.py || echo "RSS18.py failed" >> errors.log
+      #   continue-on-error: true
 
-      - name: Run RSS19
-        run: python RSS19.py || echo "RSS19.py failed" >> errors.log
-        continue-on-error: true
+      # - name: Run RSS19
+      #   run: python RSS19.py || echo "RSS19.py failed" >> errors.log
+      #   continue-on-error: true
         
-      - name: Run RSS20
-        run: python RSS20.py || echo "RSS20.py failed" >> errors.log
-        continue-on-error: true
+      # - name: Run RSS20
+      #   run: python RSS20.py || echo "RSS20.py failed" >> errors.log
+      #   continue-on-error: true
 
       - name: Merge RSS feeds into combined.xml
         run: python merge_feeds.py
