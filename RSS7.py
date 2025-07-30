@@ -22,8 +22,8 @@ def generate_rss(items, output_path):
         entry = fg.add_entry()
         entry.title(item['title'])
         entry.link(href=item['link'])
+        entry.description(item['description'])
         entry.guid(item['link'], permalink=False)
-        entry.guid(guid_value, permalink=False)
         entry.pubDate(item['pub_date'])
 
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
