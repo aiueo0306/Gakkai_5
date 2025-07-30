@@ -22,8 +22,7 @@ def generate_rss(items, output_path):
         entry = fg.add_entry()
         entry.title(item['title'])
         entry.link(href=item['link'])
-        entry.description(item['description'])
-        guid_value = f"{item['link']}#{item['pub_date'].strftime('%Y%m%d')}"
+        entry.guid(item['link'], permalink=False)
         entry.guid(guid_value, permalink=False)
         entry.pubDate(item['pub_date'])
 
