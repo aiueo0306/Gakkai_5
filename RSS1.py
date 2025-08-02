@@ -23,7 +23,7 @@ def generate_rss(items, output_path):
         entry.title(item['title'])
         entry.link(href=item['link'])
         entry.description(item['description'])
-        entry.guid(item['link'], permalink=true)
+        entry.guid(item['link'], permalink=True)
         entry.pubDate(item['pub_date'])
 
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
