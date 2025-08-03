@@ -49,7 +49,7 @@ def extract_items(page):
 
             # 🕒 日付を現在時刻に固定
             
-            date_text = row.locator("div.date.col-4.col-md-2").inner_text().strip()
+            date_text = block.locator("div.date.col-4.col-md-2").inner_text().strip()
             pub_date = datetime.strptime(date_text, "%Y年%m月%d日").replace(tzinfo=timezone.utc)
             
             title = block.locator("a").first.inner_text().strip()
