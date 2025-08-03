@@ -47,8 +47,6 @@ def extract_items(page):
     for i in range(min(count, max_items)):
         try:
             block = blocks.nth(i)
-
-            # 🕒 日付を現在時刻に固定
             
             date_text = block.locator("div.date.col-4.col-md-2").inner_text().strip()
             pub_date = parser.parse(date_text).replace(tzinfo=timezone.utc)
