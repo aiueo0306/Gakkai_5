@@ -1,7 +1,6 @@
 from feedgen.feed import FeedGenerator
 from datetime import datetime, timezone
 from urllib.parse import urljoin
-from dateutil import parser
 import os
 import re
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
@@ -24,8 +23,7 @@ def generate_rss(items, output_path):
         entry.title(item['title'])
         entry.link(href=item['link'])
         entry.description(item['description'])
-        guid_value = f"{item['link']}#{item['pub_date'].strftime('%Y%m%d')}"
-        entry.guid(guid_value, permalink=False)
+        entry.guid(item['link'], permalink=True)
         entry.pubDate(item['pub_date'])
 
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
@@ -48,8 +46,7 @@ def extract_items(page):
         try:
             block = blocks.nth(i)
             
-            date_text = block.locator("div.date.col-4.col-md-2").inner_text().strip()
-            pub_date = parser.parse(date_text).replace(tzinfo=timezone.utc)
+            pub_date = datetime.now(timezone.utc)
             
             title = block.locator("a").first.inner_text().strip()
                 
