@@ -23,7 +23,8 @@ def generate_rss(items, output_path):
         entry.title(item['title'])
         entry.link(href=item['link'])
         entry.description(item['description'])
-        # entry.guid(item['link'], permalink=True)
+        # guid_value = f"{item['link']}#{item['pub_date'].strftime('%Y%m%d')}"
+        # entry.guid(guid_value, permalink=False)
         entry.pubDate(item['pub_date'])
 
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
@@ -47,8 +48,10 @@ def extract_items(page):
             block = blocks.nth(i)
 
             # 🕒 日付を現在時刻に固定
-            pub_date = datetime.now(timezone.utc)
-
+            
+            date_text = row.locator("div.date.col-4.col-md-2").inner_text().strip()
+            pub_date = datetime.strptime(date_text, "%Y年%m月%d日").replace(tzinfo=timezone.utc)
+            
             title = block.locator("a").first.inner_text().strip()
                 
             try:
