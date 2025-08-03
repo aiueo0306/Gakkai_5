@@ -1,6 +1,7 @@
 from feedgen.feed import FeedGenerator
 from datetime import datetime, timezone
 from urllib.parse import urljoin
+from dateutil import parser
 import os
 import re
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
@@ -50,7 +51,7 @@ def extract_items(page):
             # 🕒 日付を現在時刻に固定
             
             date_text = block.locator("div.date.col-4.col-md-2").inner_text().strip()
-            pub_date = block.parse(date_text).replace(tzinfo=timezone.utc)
+            pub_date = parser.parse(date_text).replace(tzinfo=timezone.utc)
             
             title = block.locator("a").first.inner_text().strip()
                 
